@@ -1,6 +1,6 @@
 {
     "name": "release-action",
-    "version": "v0.1.1",
+    "version": "v0.1.2",
     "description": "Automatically generate a release when the package.json version changes",
     "main": "dist/index.js",
     "scripts": {
