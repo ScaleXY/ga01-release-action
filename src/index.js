@@ -70,11 +70,13 @@ async function main() {
             base: beginningSha,
             head: process.env.GITHUB_SHA,
         });
-        let changeLog = "URL: " + data.url;
-        changeLog += "\nHTML: " + data.html_url;
-        changeLog += "\n\n";
+        let changeLog = "URL: " + data.url + "\n";
+        changeLog += "HTML: " + data.html_url + "\n\n";
         data.commits.forEach(element => {
-            changeLog += ">> " + element.sha + " |\n\n" + element.commit.message + "\n\nBy " + element.commit.author.name + " [" + element.commit.author.email + "]" + "\n@ " + element.commit.author.date + "\n";
+            changeLog += element.sha + "\n\n";
+            changeLog += element.commit.message + "\n\n";
+            changeLog += "By " + element.commit.author.name + " [" + element.commit.author.email + "]\n"
+            changeLog += "At " + element.commit.author.date + "\n\n";
         });
 
         // 2. Publish a release
